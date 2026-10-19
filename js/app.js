@@ -2,7 +2,7 @@
   'use strict';
   /* 여기서 조절하세요. 빌드 도구나 라이브러리 없이 동작합니다. */
   const CONFIG = {
-    chargeDuration: 3600,   // 100%까지 꾹 누르는 시간(ms)
+    chargeDuration: 2000,   // 100%까지 꾹 누르는 시간(ms)
     burstDuration: 1300,    // "펑!" 연출 후 결과 카드가 나올 때까지(ms)
     particles: 60,
     // 직접 구한 이미지로 캐릭터를 바꾸려면 true 로 바꾸고 assets/character/ 에 파일을 넣으세요.
