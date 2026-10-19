@@ -6,15 +6,15 @@
     burstDuration: 1300,    // "펑!" 연출 후 결과 카드가 나올 때까지(ms)
     particles: 60,
     // 직접 구한 이미지로 캐릭터를 바꾸려면 true 로 바꾸고 assets/character/ 에 파일을 넣으세요.
-    useImages: false,
+    useImages: true,
     images: {
-      idle: 'assets/character/idle.webp',       // 가만히 서 있는 모습
-      think: 'assets/character/think.webp',     // 고민하는 모습
-      torn: 'assets/character/think.webp',
-      tremble: 'assets/character/tremble.webp', // 떨면서 고민하는 모습
-      ready: 'assets/character/tremble.webp',
-      burst: 'assets/character/happy.webp',     // 팔 들고 기뻐하는 모습
-      happy: 'assets/character/happy.webp'
+      idle: 'assets/character/idle.png',        // 가만히 서 있는 모습
+      think: 'assets/character/idle.png',       // 고민 (기울기·식은땀은 CSS)
+      torn: 'assets/character/idle.png',
+      tremble: 'assets/character/idle.png',     // 떨림·효과선은 CSS
+      ready: 'assets/character/idle.png',
+      burst: 'assets/character/happy.png',      // 펑! 점프하는 모습
+      happy: 'assets/character/eat.png'         // 결과: 맛있게 먹는 모습
     }
   };
 

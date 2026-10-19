@@ -50,14 +50,14 @@ button:focus-visible{outline:3px solid var(--sky);outline-offset:4px}
 .app[data-state=think] .c-root{transform:rotate(-5deg)}
 .app[data-state=think] .c-eyes{transform:translate(4px,-5px)}
 .app[data-state=think] .c-sweat{opacity:1}
-.app[data-state=torn] .character{animation:sway 1.1s ease-in-out infinite}
+.app[data-state=torn] :is(.character,.character-image){animation:sway 1.1s ease-in-out infinite}
 .app[data-state=torn] .c-sweat{opacity:1}
 .app[data-state=torn] .c-eyes{animation:dart 1.1s ease-in-out infinite}
-.app[data-state=tremble] .character{animation:tremble .19s linear infinite}
+.app[data-state=tremble] :is(.character,.character-image){animation:tremble .19s linear infinite}
 .app[data-state=tremble] .c-sweat,.app[data-state=tremble] .c-blush{opacity:1}
 .app[data-state=tremble] .speech-fluster{opacity:1}
 .app[data-state=tremble] .shake-lines{opacity:1}
-.app[data-state=ready] .character{animation:tremble .13s linear infinite}
+.app[data-state=ready] :is(.character,.character-image){animation:tremble .13s linear infinite}
 .app[data-state=ready] .c-eyes{transform:scale(1.15)}
 .app[data-state=ready] .c-mouth-open,.app[data-state=ready] .c-blush{opacity:1}
 .app[data-state=ready] .c-mouth-closed,.app[data-state=ready] .c-sweat{opacity:0}
@@ -68,13 +68,13 @@ button:focus-visible{outline:3px solid var(--sky);outline-offset:4px}
 .app[data-state=happy] .c-arm-l{transform:rotate(95deg)}
 .app[data-state=happy] .c-arm-r{transform:rotate(-95deg)}
 .app[data-state=happy] .c-tail{animation:wag 1.1s ease-in-out infinite}
-.app[data-phase=burst] .character{animation:jump .48s cubic-bezier(.16,1,.3,1) infinite}
+.app[data-phase=burst] :is(.character,.character-image){animation:jump .48s cubic-bezier(.16,1,.3,1) infinite}
 .app[data-phase=burst] .c-arm-l{animation:wave-l .48s ease-in-out infinite}
 .app[data-phase=burst] .c-arm-r{animation:wave-r .48s ease-in-out infinite}
 .app[data-phase=burst] .speech,.app[data-phase=burst] .scene-star{opacity:0}
 .app[data-phase=burst] .ground{transform:scale(.7)}
 .app[data-phase=burst] .intro{opacity:.25}
-.app[data-phase=result] .character{animation:bob 2.4s ease-in-out infinite}
+.app[data-phase=result] :is(.character,.character-image){animation:bob 2.4s ease-in-out infinite}
 .app[data-phase=result] .speech{opacity:1}
 
 /* 펑! 메시지 */
@@ -153,3 +153,11 @@ button:focus-visible{outline:3px solid var(--sky);outline-offset:4px}
 @media(max-height:680px){.scene{height:220px;--character-size:200px}.scene-glow{height:190px;width:240px}.hold-button,.replay-button,.action-button{min-height:54px;margin-top:16px}.chips{margin-bottom:12px}}
 @media(max-width:350px){.app{padding-left:22px;padding-right:22px}.scene{width:calc(100% + 44px)}.intro h1{font-size:28px}.speech{right:12px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.app[data-phase=burst] .burst-message{animation:none;opacity:1}.particle{display:none}}
+
+/* 이미지 모드: SVG 부위 연출을 대신하는 보조 연출 */
+.app.use-images .character-button{transform-origin:50% 95%;transition:transform .3s}
+.app.use-images[data-state=think] .character-button{transform:rotate(-6deg)}
+.app.use-images[data-state=torn] .character-button{transform:rotate(4deg)}
+.sweat-drop{position:absolute;right:calc(50% - var(--character-size)*.42);top:calc(50% - var(--character-size)*.38);width:22px;height:30px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:3}
+.app.use-images[data-state=think] .sweat-drop,.app.use-images[data-state=torn] .sweat-drop,.app.use-images[data-state=tremble] .sweat-drop{opacity:1;animation:drip 1.4s ease-in-out infinite}
+@keyframes drip{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
